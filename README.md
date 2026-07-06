@@ -3,13 +3,6 @@
 SSL pretraining on Mars crater imagery, probed for crater
 degradation state.
 
-This is a representation-learning probe, not a supervised classifier. A ViT
-encoder is pretrained with a masked-autoencoder (MAE) objective on crater
-patches without labels. Degradation labels (A/B/C) appear only afterwards,
-at *probe* time, as a measurement of what the frozen representation already
-separates — which sidesteps the severe class imbalance in the labels, because
-pretraining never sees them.
-
 ## Pipeline
 
 The repository contains exactly two phases:
