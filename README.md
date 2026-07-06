@@ -16,14 +16,14 @@ The repository contains exactly two phases:
 
 ```mermaid
 flowchart LR
-    subgraph P1["Phase 1 — SSL pretraining"]
+    subgraph P1["Phase 1: SSL pretraining"]
         direction TB
         patches["crater patches<br/>(unlabeled)"]
         encoder["ViT-MAE encoder<br/>(checkpoints/)"]
         patches -- "mask 75%, reconstruct (MAE)" --> encoder
     end
 
-    subgraph P2["Phase 2 — frozen-encoder probe"]
+    subgraph P2["Phase 2: frozen-encoder probe"]
         direction TB
         cache["embeddings cache<br/>(.parquet)"]
         metrics["linear-probe metrics<br/>(results/)"]
@@ -43,13 +43,13 @@ flowchart LR
 ```
 thesis/
 ├── config.py                  # paths + all hyperparams
-├── dataset.py                 # dataset classes + group-aware train/val/test split
+├── dataset.py                 # dataset classes + train/val/test split
 ├── pretrain/
 │   ├── mae.py                 # HF ViT-MAE wrapper
-│   └── train_mae.py           # Phase 1: MAE pretraining (resumable, checkpointed)
+│   └── train_mae.py           # phase 1: MAE pretraining
 └── probe/
-    ├── extract_embeddings.py  # encoder → per-crater embedding cache (.parquet)
-    └── linear_probe.py        # Phase 2: logistic regression on frozen embeddings
+    ├── extract_embeddings.py  # encoder -> per-crater embedding cache (.parquet)
+    └── linear_probe.py        # phase 2: logistic regression on frozen embeddings
 ```
 
 ## Data
