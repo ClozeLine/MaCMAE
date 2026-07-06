@@ -1,0 +1,27 @@
+[project]
+name = "macmae"
+version = "0.1.0"
+description = "MaCMAE: Masked-autoencoder pretraining on Mars crater imagery + a frozen-encoder linear probe for degradation state"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.4.4",
+    "pandas>=2.2.0",
+    "pillow>=12.2.0",
+    "pyarrow>=24.0.0",
+    "scikit-learn>=1.8.0",
+    "torch>=2.11.0",
+    "tqdm>=4.67.3",
+    "transformers>=5.9.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["thesis*"]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
